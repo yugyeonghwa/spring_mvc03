@@ -11,45 +11,48 @@
 	table,th,td{border: 1px solid black; padding: 3px}
 	div{width: 600px; margin:auto; text-align: center;}
 </style>
-
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		let pwdchk = "${pwdchk}";
-		if (pwdchk == 'fail') {
-			alert("비밀번호 틀림");
-			return;
-		}
-	});
-</script>
-
-<script type="text/javascript">
-	function delete_go(f) {
-		f.action="gb2_delete_ok.do";
+	function save_go(f) {
+		f.action = "gb_write_ok.do";
 		f.submit();
-		}
+	}
+
 </script>
 </head>
 <body>
 	<div>
-		<h2>방명록 : 삭제화면</h2>
+		<h2>방명록 : 작성화면</h2>
 		<hr />
-		<p>[<a href="gb2_list.do">목록으로 이동</a>]</p>
+		<p>[<a href="gb_list.do">목록으로 이동</a>]</p>
 		<form method="post">
 			<table>
+				<tr align="center">
+					<td bgcolor="#99ccff">작성자</td>
+					<td><input type="text" name="name" size ="20"/></td>
+				</tr>
+				<tr align="center">
+					<td bgcolor="#99ccff">제  목</td>
+					<td><input type="text" name="subject" size ="20"/></td>
+				</tr>
+				<tr align="center">
+					<td bgcolor="#99ccff">email</td>
+					<td><input type="text" name="email" size ="20"/></td>
 				</tr>
 				<tr align="center">
 					<td bgcolor="#99ccff">비밀번호</td>
 					<td><input type="password" name="pwd" size ="20"/></td>
 				</tr>
+				<tr align="center">
+					<td colspan="2">
+						<textarea rows="10" cols="60" name="content"></textarea>
+					</td>
+				</tr>
 				<tfoot>
 					<tr align="center">
 						<td colspan="2">
-							<input type="hidden" name="idx" value="${vo2.idx}">  	
-							<input type="button" value="삭제" onclick="delete_go(this.form)" />
+							<input type="button" value="저장" onclick="save_go(this.form)" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="reset" value="취소">
+							<input type="reset" value="취소" />
 						</td>
 					</tr>
 				</tfoot>

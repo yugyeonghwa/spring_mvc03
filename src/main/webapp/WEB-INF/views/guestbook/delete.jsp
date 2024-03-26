@@ -26,16 +26,16 @@
 
 <script type="text/javascript">
 	function delete_go(f) {
-		f.action="gb2_delete_ok.do";
+		f.action="gb_delete_ok.do";
 		f.submit();
-		}
+	}
 </script>
 </head>
 <body>
 	<div>
 		<h2>방명록 : 삭제화면</h2>
 		<hr />
-		<p>[<a href="gb2_list.do">목록으로 이동</a>]</p>
+		<p>[<a href="gb_list.do">목록으로 이동</a>]</p>
 		<form method="post">
 			<table>
 				</tr>
@@ -46,7 +46,7 @@
 				<tfoot>
 					<tr align="center">
 						<td colspan="2">
-							<input type="hidden" name="idx" value="${vo2.idx}">  	
+							<input type="hidden" name="idx" value="${idx}">  	
 							<input type="button" value="삭제" onclick="delete_go(this.form)" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="reset" value="취소">

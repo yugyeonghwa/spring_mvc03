@@ -4,16 +4,16 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="guestbook">
-	<select id="list" resultType="com.ict.guestbook.service.GuestbookVO">
+	<select id="list" resultType="gvo">
 		select * from guestbook order by idx
 	</select>
 	
-	<insert id="insert" parameterType="com.ict.guestbook.service.GuestbookVO">
+	<insert id="insert" parameterType="gvo">
 		insert into guestbook(idx, name, subject, content, email, pwd, regdate)
 		values(guestbook_seq.nextval, #{name}, #{subject}, #{content}, #{email}, #{pwd}, sysdate)
 	</insert>
 	
-	<select id="detail" parameterType="String" resultType="com.ict.guestbook.service.GuestbookVO">
+	<select id="detail" parameterType="String" resultType="gvo">
 		select * from guestbook where idx = #{idx}
 	</select>
 	
@@ -21,7 +21,7 @@
 		delete from guestbook where idx = #{idx}
 	</delete>
 	
-	<update id="update" parameterType="com.ict.guestbook.service.GuestbookVO">
+	<update id="update" parameterType="gvo">
 		update guestbook 
 		set name=#{name}, subject=#{subject}, content=#{content}, email=#{email}
 		where idx=#{idx}
